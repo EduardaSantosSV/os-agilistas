@@ -1,0 +1,86 @@
+body {
+	height: 100vh;
+	width: 100%;
+	overflow-y: auto;
+	background-color: white;
+	margin: 0px;
+}
+
+header {
+	padding: 20px;
+	display: flex;
+	align-items: center;
+}
+
+header img {
+	width: 120px;
+}
+
+nav {
+	display: flex;
+	flex-grow: 1;
+}
+
+nav ul {
+	display: flex;
+	list-style: none;
+	gap: 10px;
+	padding-left: 45%;
+	flex-grow: 1;
+}
+
+nav ul li a {
+	text-decoration: none;
+	color: #24366C;
+	padding-left: 9px;
+	padding-right: 9px;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	font-family: "Poppins", Sans-serif;
+	font-size: 14px;
+	font-weight: 700;
+	white-space: nowrap;
+} 
+
+.slider {
+	width: 100%;
+	overflow: hidden;
+}
+
+.slides {
+	display: flex;	
+}
+
+.slide {
+	display: none;
+}
+
+.slide.active {
+	display: block;
+}
+
+.slide.active img {
+	width: 100%;
+}
+
+.manual-navigation {
+	margin: 10px 0px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+}
+
+.manual-navigation button {
+	background: gray;
+	border: none;
+	padding: 3px;
+	border-radius: 50%;
+	cursor: pointer;
+	background-color: #282828;
+	transition: transform 0.3s ease;
+}
+
+.manual-navigation .active {
+	transform: scale(1.5);
+}

@@ -10,14 +10,13 @@ const Slider = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
-        console.log("Mudou para slide:", currentIndex); // 🛠️ Log quando o slide muda
 
         const interval = setInterval(() => {
             setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
         }, 6000);
 
         return () => clearInterval(interval);
-    }, [currentIndex]); // 🔥 Dependência atualizada para ver mudanças no estado
+    }, [currentIndex]);
 
     return (
         <div className="slider">
@@ -35,7 +34,6 @@ const Slider = () => {
                         key={index}
                         className={currentIndex === index ? "active" : ""}
                         onClick={() => {
-                            console.log("Clicou no botão do slide:", index); // 🛠️ Log ao clicar no botão
                             setCurrentIndex(index);
                         }}
                     ></button>

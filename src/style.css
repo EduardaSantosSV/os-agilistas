@@ -40,7 +40,7 @@ nav ul li a {
 	font-size: 14px;
 	font-weight: 700;
 	white-space: nowrap;
-} 
+}
 
 .slider {
 	width: 100%;
@@ -48,7 +48,7 @@ nav ul li a {
 }
 
 .slides {
-	display: flex;	
+	display: flex;
 }
 
 .slide {
@@ -83,4 +83,263 @@ nav ul li a {
 
 .manual-navigation .active {
 	transform: scale(1.5);
+}
+
+.about {
+	width: 100%;
+	max-width: 1200px;
+	margin: 60px auto;
+}
+
+#titles {
+	font-family: "Poppins", Sans-serif;
+	font-size: 60px;
+	font-weight: 700;
+	color: #F9065E;
+}
+
+#text {
+	color: #0c0c0c;
+	font-family: "Poppins", Sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 24px;
+}
+
+.listen {
+	background-image: url("https://osagilistas.com/wp-content/uploads/2021/01/Celular-DTI-1.png");
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	min-height: 29vh;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.agilists {
+	display: flex;
+	max-width: 1200px;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+}
+
+#text-agilists {
+	font-family: "Poppins", Sans-serif;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 42px;
+	line-height: 63px;
+	color: #E7E7E0;
+	text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+#btn-listen {
+	background: #F9065E;
+	border-radius: 8px;
+	color: #FFF;
+	font-family: "Poppins", Sans-serif;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 1rem;
+	padding: 15px 13px;
+	display: flex;
+	align-items: center;
+	border: none;
+}
+
+.host-container {
+	display: flex;
+	justify-content: center;
+}
+
+.host-slider {
+	max-width: 1200px;
+	width: 100%;
+}
+
+.current-host {
+	background-color: #F7F7F754;
+	padding: 0px 0px 0px 0px;
+}
+
+.hosts {
+	width: 100%;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+}
+
+.about-hosts {
+	gap: 40px;
+	border-radius: 20px;
+	border-style: solid;
+	border-width: 0px 0px 0px 22px;
+	border-color: #c2ff19;
+	box-shadow: 0px 5px 9px 0px rgba(0, 0, 0, 0.19);
+	background-color: #ffffff;
+	max-width: 780px;
+
+	margin: 0px 0px 33px 0px;
+	padding: 30px 40px 55px 40px;
+	display: flex;
+	box-sizing: border-box;
+}
+
+.about-hosts img {
+	width: 200px;
+	height: 200px;
+}
+
+#text-name {
+	font-family: "Poppins", Sans-serif;
+	font-size: 24px;
+	font-weight: 700;
+	color: #24366C;
+}
+
+#text-about {
+	color: #0C0C0C;
+	font-family: "Roboto", Sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+}
+
+.manual-navigation-host {
+	margin: 10px 0px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+}
+
+.manual-navigation-host button {
+	background: #aaa;
+	border: 1px solid #aaa;
+	padding: 3px;
+	border-radius: 50%;
+	cursor: pointer;
+	width: 12px;
+	height: 12px;
+	box-shadow: none;
+	transition: transform 0.3s ease;
+}
+
+.manual-navigation-host .active-host {
+	transform: scale(1.1);
+	background: white;
+}
+
+.guests-container {
+	max-width: 1200px;
+	width: 100%;
+	margin: auto;
+}
+
+.guest-slider {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+}
+
+.guest-images {
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+	width: 95%;
+}
+
+.guest-image {
+	width: 20%;
+	max-width: 250px;
+	height: auto;
+	object-fit: contain;
+}
+
+.prev-btn,
+.next-btn {
+	background-color: white;
+	border: none;
+	padding: 10px;
+	cursor: pointer;
+	font-size: 20px;
+	border-radius: 50%;
+}
+
+.partners-container {
+	max-width: 1200px;
+	width: 100%;
+	margin: auto;
+}
+
+.partner-slider {
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+}
+
+.partner-images {
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+	width: 95%;
+}
+
+.partner-image {
+	width: 20%;
+	max-width: 250px;
+	height: auto;
+	object-fit: scale-down;
+}
+
+.manual-navigation-partner {
+	margin: 10px 0px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+}
+
+.manual-navigation-partner button {
+	background: gray;
+	border: none;
+	padding: 3px;
+	border-radius: 50%;
+	cursor: pointer;
+	background-color: #aaa;
+	transition: transform 0.3s ease;
+}
+
+.manual-navigation-partner .active-partner {
+	transform: scale(1.1);
+	background: #282828;
+}
+
+.subscribe-container {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 20px 0px;
+	margin: auto;
+}
+
+#btn-subscribe {
+	border: none;
+	border-radius: 4px;
+	background-color: #C2FF19;
+	font-family: "Roboto", Sans-serif;
+	font-weight: 750;
+	font-style: normal;
+	font-weight: bold;
+	padding: 20px 40px;
+	fill: #0C2340;
+	color: #0C2340;
+
 }

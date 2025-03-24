@@ -7,6 +7,7 @@ const Listen = () => {
                     <br />
                     Os Agilistas
                 </h4>
+                <h4 id="minor-text-agilists">Conheça os Agilistas</h4>
 
                 <button id="btn-listen">Ouça nossos episódios</button>
             </div>

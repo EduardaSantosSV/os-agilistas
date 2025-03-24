@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 const img = [
     "https://osagilistas.com/wp-content/uploads/2024/10/Allos-site-1040-1040-300x300.png",
@@ -18,15 +19,31 @@ const img = [
 
 const Guests = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const imagesPerPage = 5;
+    const [imagesPerPage, setImagesPerPage] = useState(5);
+
+    useEffect(() => {
+        const updateImagesPerPage = () => {
+            const width = window.innerWidth;
+            if (width <= 768) {
+                setImagesPerPage(2); // Em telas menores que 768px, exibe 2 imagens
+            } else if (width <= 1024) {
+                setImagesPerPage(4); // Em telas menores que 1024px, exibe 4 imagens
+            } else {
+                setImagesPerPage(5); // Padrão: 5 imagens
+            }
+        };
+
+        updateImagesPerPage();
+        window.addEventListener("resize", updateImagesPerPage);
+        return () => window.removeEventListener("resize", updateImagesPerPage);
+    }, []);
 
     useEffect(() => {
         const interval = setInterval(() => {
             nextSlide();
         }, 8000);
-
         return () => clearInterval(interval);
-    }, []);
+    }, [currentIndex, imagesPerPage]);
 
     const nextSlide = () => {
         setCurrentIndex((prevIndex) => (prevIndex + imagesPerPage) % img.length);
@@ -38,20 +55,30 @@ const Guests = () => {
 
     return (
         <div className="guests-container">
-
             <h2 id="titles">Quem já passou pelo podcast</h2>
 
             <div className="guest-slider">
                 <button className="prev-btn" onClick={prevSlide}>{"<"}</button>
 
-                <div className="guest-images">
+                <motion.div
+                    className="guest-images"
+                    key={currentIndex}
+                    initial={{ x: "100%" }}
+                    animate={{ x: 0 }}
+                    exit={{ x: "-100%" }}
+                    transition={{
+                        x: { type: "spring", stiffness: 300, damping: 30 },
+                        duration: 0.6,
+                    }}
+                    style={{ display: "flex", justifyContent: "center", gap: "20px" }}
+                >
                     {Array.from({ length: imagesPerPage }).map((_, i) => {
                         const index = (currentIndex + i) % img.length;
                         return (
                             <img key={index} src={img[index]} alt={`Guest ${index + 1}`} className="guest-image" />
                         );
                     })}
-                </div>
+                </motion.div>
 
                 <button className="next-btn" onClick={nextSlide}>{">"}</button>
             </div>

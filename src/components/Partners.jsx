@@ -10,20 +10,37 @@ const logoPartners = [
 ];
 
 const Partners = () => {
-    const [currentSection, setCurrentSection] = useState(0); 
-    const imagesPerPage = 5;
-    const totalSections = 3;  
+    const [currentSection, setCurrentSection] = useState(0);
+    const [imagesPerPage, setImagesPerPage] = useState(5); // Começa mostrando 5 imagens
+
+    useEffect(() => {
+        // Ajusta a quantidade de imagens conforme o tamanho da tela
+        const updateImagesPerPage = () => {
+            if (window.innerWidth <= 768) {
+                setImagesPerPage(2);
+            } else if (window.innerWidth <= 1024) {
+                setImagesPerPage(4);
+            } else {
+                setImagesPerPage(5);
+            }
+        };
+
+        updateImagesPerPage(); // Chama ao carregar a página
+        window.addEventListener("resize", updateImagesPerPage);
+
+        return () => window.removeEventListener("resize", updateImagesPerPage);
+    }, []);
 
     useEffect(() => {
         const interval = setInterval(() => {
-            nextSection(); 
+            nextSection();
         }, 3000);
 
         return () => clearInterval(interval);
     }, [currentSection]);
 
     const nextSection = () => {
-        setCurrentSection((prevSection) => (prevSection + 1) % totalSections); 
+        setCurrentSection((prevSection) => (prevSection + 1) % Math.ceil(logoPartners.length / imagesPerPage));
     };
 
     const sectionStartIndex = (currentSection * imagesPerPage) % logoPartners.length;
@@ -41,11 +58,11 @@ const Partners = () => {
                     })}
                 </div>
                 <div className="manual-navigation-partner">
-                    {Array.from({ length: totalSections }).map((_, index) => (
+                    {Array.from({ length: Math.ceil(logoPartners.length / imagesPerPage) }).map((_, index) => (
                         <button
                             key={index}
                             className={currentSection === index ? "active-partner" : ""}
-                            onClick={() => setCurrentSection(index)} 
+                            onClick={() => setCurrentSection(index)}
                         ></button>
                     ))}
                 </div>

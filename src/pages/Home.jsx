@@ -7,6 +7,7 @@ import Guests from "../components/Guests";
 import Partners from "../components/Partners";
 import Subscribe from "../components/Subscribe";
 import Column from "../components/Column";
+import Agilists from "../components/Agilists";
 import Footer from "../components/footer";
 
 function App() {
@@ -22,8 +23,9 @@ function App() {
         <Partners />
         <Subscribe />
         <Column />
+        <Agilists />
       </main>
-      {/*<Footer />*/}
+      <Footer />
     </div>
   );
 }

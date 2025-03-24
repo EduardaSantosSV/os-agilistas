@@ -7,7 +7,7 @@ body {
 }
 
 header {
-	padding: 20px;
+	padding: 45px 30px;
 	display: flex;
 	align-items: center;
 }
@@ -25,8 +25,7 @@ nav ul {
 	display: flex;
 	list-style: none;
 	gap: 10px;
-	padding-left: 45%;
-	flex-grow: 1;
+	margin-left: auto;
 }
 
 nav ul li a {
@@ -87,14 +86,30 @@ nav ul li a {
 
 .about {
 	width: 100%;
+	box-sizing: border-box;
 	max-width: 1200px;
-	margin: 60px auto;
+	margin: 60px 0;
+	padding: 0px 2%;
+}
+
+@media (max-width: 1024px) {
+
+	#text {
+		font-size: 12px;
+	}
+}
+
+@media (max-width: 1024px) {
+
+	#titles {
+		font-size: 32px !important;
+	}
 }
 
 #titles {
 	font-family: "Poppins", Sans-serif;
 	font-size: 60px;
-	font-weight: 700;
+	font-weight: 800;
 	color: #F9065E;
 }
 
@@ -120,21 +135,56 @@ nav ul li a {
 }
 
 .agilists {
+	box-sizing: border-box;
 	display: flex;
 	max-width: 1200px;
 	align-items: center;
 	justify-content: space-between;
 	width: 100%;
+	padding: 0px 4%;
 }
 
 #text-agilists {
 	font-family: "Poppins", Sans-serif;
-	font-style: normal;
-	font-weight: bold;
+	font-weight: 900;
 	font-size: 42px;
 	line-height: 63px;
 	color: #E7E7E0;
 	text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+	margin: 0px;
+}
+
+#minor-text-agilists {
+	font-family: "Poppins", Sans-serif;
+	font-weight: 900;
+	font-size: 24px;
+	line-height: 20px;
+	color: #E7E7E0;
+	text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+	margin: 0px;
+	display: none;
+}
+
+@media (max-width: 550px) {
+
+	.agilists {
+		flex-direction: column;
+		justify-content: center;
+		gap: 15px;
+	}
+
+	#text-agilists {
+		font-size: 24px;
+		line-height: 20px;
+	}
+
+	#text-agilists {
+		display: none;
+	}
+
+	#minor-text-agilists {
+		display: block;
+	}
 }
 
 #btn-listen {
@@ -154,6 +204,7 @@ nav ul li a {
 .host-container {
 	display: flex;
 	justify-content: center;
+	padding: 0px 20px;
 }
 
 .host-slider {
@@ -163,7 +214,7 @@ nav ul li a {
 
 .current-host {
 	background-color: #F7F7F754;
-	padding: 0px 0px 0px 0px;
+	padding: 0px;
 }
 
 .hosts {
@@ -171,6 +222,14 @@ nav ul li a {
 	overflow: hidden;
 	display: flex;
 	justify-content: center;
+	padding: 0px 4%;
+	box-sizing: border-box;
+}
+
+.fade {
+	opacity: 0;
+	transform: translateY(0px);
+	transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
 .about-hosts {
@@ -182,19 +241,32 @@ nav ul li a {
 	box-shadow: 0px 5px 9px 0px rgba(0, 0, 0, 0.19);
 	background-color: #ffffff;
 	max-width: 780px;
-
 	margin: 0px 0px 33px 0px;
 	padding: 30px 40px 55px 40px;
 	display: flex;
+	align-items: flex-start;
 	box-sizing: border-box;
+	opacity: 1;
+	transform: translateY(0);
+}
+
+@media (max-width: 767px) {
+
+	.about-hosts {
+		flex-direction: column;
+		padding: 50px 10%;
+	}
 }
 
 .about-hosts img {
-	width: 200px;
-	height: 200px;
+	max-width: 200px;
+	width: 100%;
+	max-height: 200px;
+	height: 100%;
 }
 
 #text-name {
+	margin: 0px;
 	font-family: "Poppins", Sans-serif;
 	font-size: 24px;
 	font-weight: 700;
@@ -233,62 +305,103 @@ nav ul li a {
 	background: white;
 }
 
+.manual-navigation-host button:hover {
+	background: white;
+	transform: scale(1.1);
+}
+
+/* Container principal */
 .guests-container {
-	max-width: 1200px;
-	width: 100%;
-	margin: auto;
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+    padding: 60px 16px 0px 16px;
+    box-sizing: border-box;
 }
 
+/* Slider */
 .guest-slider {
-	width: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
+/* Imagens dentro do carrossel */
 .guest-images {
-	display: flex;
-	justify-content: center;
-	gap: 20px;
-	width: 95%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 95%;
+    position: relative;
 }
 
+/* Imagem do carrossel */
 .guest-image {
-	width: 20%;
-	max-width: 250px;
-	height: auto;
-	object-fit: contain;
+	flex: 1 1 auto;
+    width: 20%;
+    max-width: 250px;
+    height: auto;
+    object-fit: contain;
 }
 
+/* Botões de navegação */
 .prev-btn,
 .next-btn {
-	background-color: white;
-	border: none;
-	padding: 10px;
-	cursor: pointer;
-	font-size: 20px;
-	border-radius: 50%;
+    background-color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 50%;
 }
+/* Para telas menores (1024px), exibe 4 imagens e ajusta o tamanho */
+@media (max-width: 1024px) {
+    .guest-image {
+        width: 22%; /* 4 imagens por linha */
+        max-width: 220px;
+    }
+}
+
+/* Para telas menores (768px), exibe apenas 2 imagens e aumenta um pouco */
+@media (max-width: 768px) {
+    .guest-image {
+        width: 45%; /* 2 imagens por linha */
+        max-width: 250px;
+    }
+}
+
+
 
 .partners-container {
 	max-width: 1200px;
 	width: 100%;
 	margin: auto;
+	padding-top: 30px;
+	padding: 0px 16px;
+	box-sizing: border-box;
 }
 
 .partner-slider {
-	width: 100%;
-	align-items: center;
-	justify-content: center;
-	gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Garante que o conteúdo do carrossel fique centralizado */
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+	height: 150px;
 }
 
 .partner-images {
-	display: flex;
-	justify-content: center;
-	gap: 20px;
-	width: 95%;
+    display: flex;
+    justify-content: center; /* Centraliza as imagens no carrossel */
+    align-items: center; /* Centraliza verticalmente */
+    gap: 20px;
+    width: 100%;
+    transition: transform 0.6s ease-in-out;
 }
 
 .partner-image {
@@ -296,30 +409,51 @@ nav ul li a {
 	max-width: 250px;
 	height: auto;
 	object-fit: scale-down;
+	margin-right: 20px;
+	/* Adiciona um pequeno espaçamento entre as imagens */
+}
+
+/* Ajuste para telas menores */
+@media (max-width: 1024px) {
+    .partner-image {
+        width: calc(100% / 4 - 15px);
+    }
+}
+
+@media (max-width: 768px) {
+    .partner-image {
+        width: calc(100% / 2 - 10px);
+    }
 }
 
 .manual-navigation-partner {
-	margin: 10px 0px;
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	gap: 10px;
+    margin: 10px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    position: absolute; /* Isso garante que a navegação fique fixa no carrossel */
+    bottom: 10px; /* Ajuste a posição para a parte inferior do carrossel */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Garante que a navegação fique perfeitamente centrada */
+    z-index: 1; /* Para garantir que os botões fiquem acima do conteúdo */
 }
 
 .manual-navigation-partner button {
-	background: gray;
-	border: none;
-	padding: 3px;
-	border-radius: 50%;
-	cursor: pointer;
-	background-color: #aaa;
-	transition: transform 0.3s ease;
+    background: gray;
+    border: none;
+    padding: 3px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #aaa;
+    transition: transform 0.3s ease;
 }
 
 .manual-navigation-partner .active-partner {
-	transform: scale(1.1);
-	background: #282828;
+    transform: scale(1.1);
+    background: #282828;
 }
+
 
 .subscribe-container {
 	width: 100%;
@@ -334,12 +468,300 @@ nav ul li a {
 	border: none;
 	border-radius: 4px;
 	background-color: #C2FF19;
-	font-family: "Roboto", Sans-serif;
-	font-weight: 750;
-	font-style: normal;
-	font-weight: bold;
 	padding: 20px 40px;
-	fill: #0C2340;
 	color: #0C2340;
 
+	font-weight: 700 !important;
+	font-family: "Roboto", Sans-serif;
+	font-size: 18px;
+}
+
+.column-container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 150px;
+    align-items: center;
+}
+
+.columns {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.list-column {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 0px 20px;
+    justify-content: center; /* Adiciona centralização das colunas */
+}
+
+.column {
+    position: relative;
+    width: 330px;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 3px;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.25s ease;
+    margin-bottom: 20px; /* Ajuste para espaçamento entre as colunas */
+}
+
+.column:hover {
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.column-logo {
+    position: absolute;
+    width: 60px;
+    border-radius: 50%;
+    top: 34%;
+    margin: 0px 30px;
+}
+
+.image-container {
+    position: relative;
+}
+
+.thumbnail {
+    width: 100%;
+    height: 200px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 20px;
+    background-color: #818a91;
+    border-radius: 999px;
+}
+
+.overlay p {
+    font-family: "Poppins", Sans-serif;
+    margin: 0px;
+    color: #fff;
+    font-size: 12px;
+    padding: .6em 1.2em;
+    line-height: 1;
+    font-weight: 400;
+}
+
+.about-subject {
+    padding: 40px 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.about-subject h3 {
+    margin: 0px;
+    font-family: "Poppins", Sans-serif;
+    color: #24366c;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 1.2em;
+}
+
+.about-subject p {
+    margin: 0px;
+    font-family: "Poppins", Sans-serif;
+    line-height: 1.5em;
+    font-size: 14px;
+    color: #777;
+}
+
+.about-subject span {
+    font-size: 12px;
+    font-weight: 700;
+    color: #c36;
+    font-family: "Poppins", Sans-serif;
+    text-transform: uppercase;
+}
+
+.about-subject span:hover {
+    color: #0C2340;
+}
+
+/* Ajuste para telas de 1024px ou maior (2 colunas) */
+@media (max-width: 1024px) {
+    .list-column {
+        justify-content: center;
+    }
+
+    .column {
+        width: 45%; /* Ajuste para 2 colunas por linha */
+    }
+}
+
+/* Ajuste para telas de 767px ou menor (1 coluna) */
+@media (max-width: 767px) {
+    .list-column {
+        justify-content: center;
+    }
+
+    .column {
+        width: 90%; /* Ajuste para 1 coluna por linha */
+    }
+}
+
+
+
+.agilists-container {
+	display: flex;
+	justify-content: center;
+}
+
+.agilists-slider {
+	max-width: 1200px;
+	width: 100%;
+}
+
+.current-agilists {
+	background-color: #F7F7F754;
+	padding: 0px;
+}
+
+.agilist {
+	width: 100%;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+}
+
+.aboutAgilists {
+	gap: 40px;
+	border-radius: 20px;
+	border-style: solid;
+	border-width: 0px 0px 0px 22px;
+	border-color: #c2ff19;
+	box-shadow: 0px 5px 9px 0px rgba(0, 0, 0, 0.19);
+	background-color: #ffffff;
+	max-width: 780px;
+	margin: 0px 0px 33px 0px;
+	padding: 30px 40px 55px 40px;
+	display: flex;
+	box-sizing: border-box;
+}
+
+.aboutAgilists img {
+	width: 200px;
+	height: 200px;
+}
+
+#position {
+	font-family: "Poppins", Sans-serif;
+	font-size: 14px;
+	font-weight: 700;
+	color: #24366c;
+}
+
+#text-comment {
+	color: #0C0C0C;
+	font-family: "Roboto", Sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+}
+
+.manual-navigation-agilists {
+	margin: 10px 0px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+}
+
+.manual-navigation-agilists button {
+	background: #aaa;
+	border: 1px solid #aaa;
+	padding: 3px;
+	border-radius: 50%;
+	cursor: pointer;
+	width: 12px;
+	height: 12px;
+	box-shadow: none;
+	transition: transform 0.3s ease;
+}
+
+.manual-navigation-agilists .active-agilists {
+	transform: scale(1.1);
+	background: white;
+}
+
+.manual-navigation-agilists button:hover {
+	background: white;
+	transform: scale(1.1);
+}
+
+.footer-container {
+	background-color: #0C2340;
+	padding: 60px 30px;
+	display: flex;
+	justify-content: center;
+}
+
+.footer-content {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+	max-width: 1200px;
+	width: 100%;
+}
+
+.footer-columns {
+	display: flex;
+	align-self: start;
+	width: 100%;
+}
+
+.talk {
+	width: 16.666%;
+}
+
+.about-us {
+	flex: 3;
+	display: flex;
+	gap: 10%;
+}
+
+.two {
+	width: 17.571%;
+}
+
+.three {
+	width: 16.528%;
+}
+
+.four {
+	width: 15.22%;
+}
+
+.five {
+	width: 16.666%;
+}
+
+#footer-titles {
+	font-family: "Poppins", Sans-serif;
+	font-size: 16px;
+	font-weight: 700;
+	color: #C2FF19;
+}
+
+#footer-texts {
+	color: #C2FF19;
+	font-family: "Poppins", Sans-serif;
+	font-size: 16px;
+	font-weight: 500;
+}
+
+.others-infos {
+	width: 16.666%;
+}
+
+.policy-privacy {
+	display: flex;
+	align-items: start;
+	justify-content: space-between;
 }

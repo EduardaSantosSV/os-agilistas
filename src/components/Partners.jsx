@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { GrFormPrevious } from "react-icons/gr";
+import { GrFormNext } from "react-icons/gr";
 
 const logoPartners = [
     "https://osagilistas.com/wp-content/uploads/2024/07/pcamp-logo-3.png",
@@ -11,10 +13,9 @@ const logoPartners = [
 
 const Partners = () => {
     const [currentSection, setCurrentSection] = useState(0);
-    const [imagesPerPage, setImagesPerPage] = useState(5); // Começa mostrando 5 imagens
+    const [imagesPerPage, setImagesPerPage] = useState(5);
 
-    useEffect(() => {
-        // Ajusta a quantidade de imagens conforme o tamanho da tela
+    useEffect(() => { 
         const updateImagesPerPage = () => {
             if (window.innerWidth <= 768) {
                 setImagesPerPage(2);
@@ -25,7 +26,7 @@ const Partners = () => {
             }
         };
 
-        updateImagesPerPage(); // Chama ao carregar a página
+        updateImagesPerPage();  
         window.addEventListener("resize", updateImagesPerPage);
 
         return () => window.removeEventListener("resize", updateImagesPerPage);
@@ -43,6 +44,12 @@ const Partners = () => {
         setCurrentSection((prevSection) => (prevSection + 1) % Math.ceil(logoPartners.length / imagesPerPage));
     };
 
+    const prevSection = () => {
+        setCurrentSection((prevSection) => 
+            prevSection === 0 ? Math.ceil(logoPartners.length / imagesPerPage) - 1 : prevSection - 1
+        );
+    };
+
     const sectionStartIndex = (currentSection * imagesPerPage) % logoPartners.length;
 
     return (
@@ -53,17 +60,19 @@ const Partners = () => {
                     {Array.from({ length: imagesPerPage }).map((_, i) => {
                         const index = (sectionStartIndex + i) % logoPartners.length;
                         return (
-                            <img key={index} src={logoPartners[index]} alt={`Partner ${index + 1}`} className="partner-image" />
+                            <img key={index} src={logoPartners[index]} alt={`Partner ${index + 1}`} className="partner-image"/>
                         );
                     })}
                 </div>
+ 
+                <div className="slider-navigation">
+                    <GrFormPrevious className="prev-button-partner" onClick={prevSection}/>
+                    <GrFormNext className="next-button-partner" onClick={nextSection}/>
+                </div>
+ 
                 <div className="manual-navigation-partner">
                     {Array.from({ length: Math.ceil(logoPartners.length / imagesPerPage) }).map((_, index) => (
-                        <button
-                            key={index}
-                            className={currentSection === index ? "active-partner" : ""}
-                            onClick={() => setCurrentSection(index)}
-                        ></button>
+                        <button key={index} className={currentSection === index ? "active-partner" : ""} onClick={() => setCurrentSection(index)}></button>
                     ))}
                 </div>
             </div>

@@ -1,3 +1,5 @@
+import { MdDoubleArrow } from "react-icons/md";  // Alterando o ícone
+
 const links = [
     {
         url: "https://osagilistas.com/equipes-multigeracionais/",
@@ -31,17 +33,18 @@ const Column = () => {
                     {links.map((link, index) => (
                         <div key={index} className="column" onClick={() => window.open(link.url, "_blank", "noopener noreferrer")}>
                             <div className="image-container">
-                                <img src={link.thumbnail} alt="Thumbnail" className="thumbnail" />
+                                <img src={link.thumbnail} alt="Thumbnail" className="thumbnail"/>
                                 <div className="overlay">
-                                    <p>
-                                        {link.subject}
-                                    </p>
+                                    <p>{link.subject}</p>
                                 </div>
                             </div>
                             <div className="about-subject">
                                 <h3>{link.title}</h3>
                                 <p>{link.text}</p>
-                                <span href="url">Leia mais</span>
+                                <span href="url">
+                                    Leia mais 
+                                    <MdDoubleArrow size={9}/>   
+                                </span>
                             </div>
                             <img src="https://osagilistas.com/wp-content/uploads/2022/08/cropped-logo-agilistas-128x128.jpg" className="column-logo" alt="" />
                         </div>

@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { GrFormPrevious } from "react-icons/gr";
+import { GrFormNext } from "react-icons/gr";
 
 const img = [
     "https://osagilistas.com/wp-content/uploads/2024/10/Allos-site-1040-1040-300x300.png",
@@ -25,11 +27,11 @@ const Guests = () => {
         const updateImagesPerPage = () => {
             const width = window.innerWidth;
             if (width <= 768) {
-                setImagesPerPage(2); // Em telas menores que 768px, exibe 2 imagens
+                setImagesPerPage(2);  
             } else if (width <= 1024) {
-                setImagesPerPage(4); // Em telas menores que 1024px, exibe 4 imagens
+                setImagesPerPage(4); 
             } else {
-                setImagesPerPage(5); // Padrão: 5 imagens
+                setImagesPerPage(5);  
             }
         };
 
@@ -57,8 +59,8 @@ const Guests = () => {
         <div className="guests-container">
             <h2 id="titles">Quem já passou pelo podcast</h2>
 
-            <div className="guest-slider">
-                <button className="prev-btn" onClick={prevSlide}>{"<"}</button>
+            <div className="guest-slider"> 
+                <GrFormPrevious className="prev-button-guest" onClick={prevSlide} />
 
                 <motion.div
                     className="guest-images"
@@ -72,15 +74,14 @@ const Guests = () => {
                     }}
                     style={{ display: "flex", justifyContent: "center", gap: "20px" }}
                 >
-                    {Array.from({ length: imagesPerPage }).map((_, i) => {
-                        const index = (currentIndex + i) % img.length;
+                    {Array.from({ length: imagesPerPage }).map((_, i) => {const index = (currentIndex + i) % img.length;
                         return (
                             <img key={index} src={img[index]} alt={`Guest ${index + 1}`} className="guest-image" />
                         );
                     })}
                 </motion.div>
 
-                <button className="next-btn" onClick={nextSlide}>{">"}</button>
+                <GrFormNext className="next-button-guest" onClick={nextSlide} />
             </div>
         </div>
     );

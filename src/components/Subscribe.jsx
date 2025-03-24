@@ -1,7 +1,9 @@
 const Subscribe = () => {
     return (
         <div className="subscribe-container">
-            <button id="btn-subscribe">Inscreva-se na nossa newsletter!</button>
+            <a href="https://osagilistas.com/assine-nossa-newsletter/" target="_blank" rel="noopener noreferrer"className="btn-subscribe-link">
+                <button id="btn-subscribe">Inscreva-se na nossa newsletter!</button>
+            </a>
         </div>
     );
 };

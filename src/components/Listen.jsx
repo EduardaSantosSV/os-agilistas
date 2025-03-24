@@ -9,7 +9,9 @@ const Listen = () => {
                 </h4>
                 <h4 id="minor-text-agilists">Conheça os Agilistas</h4>
 
-                <button id="btn-listen">Ouça nossos episódios</button>
+                <a href="https://osagilistas.com/episodios/" target="_blank" rel="noopener noreferrer">
+                    <button id="btn-listen">Ouça nossos episódios</button>
+                </a>
             </div>
         </div>
     );

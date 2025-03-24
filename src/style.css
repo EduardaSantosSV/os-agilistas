@@ -1,49 +1,127 @@
 body {
-	height: 100vh;
-	width: 100%;
-	overflow-y: auto;
-	background-color: white;
-	margin: 0px;
+    height: 100vh;
+    width: 100%;
+    overflow-y: auto;
+    background-color: white;
+    margin: 0px;
 }
 
 header {
-	padding: 45px 30px;
-	display: flex;
-	align-items: center;
+    padding: 45px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
 }
 
 header img {
-	width: 120px;
+    width: 120px;
 }
 
 nav {
-	display: flex;
-	flex-grow: 1;
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 nav ul {
-	display: flex;
-	list-style: none;
-	gap: 10px;
-	margin-left: auto;
+    display: flex;
+    list-style: none;
+    gap: 10px;
+    margin-left: auto;
+    align-items: center;
 }
 
 nav ul li a {
-	text-decoration: none;
-	color: #24366C;
-	padding-left: 9px;
-	padding-right: 9px;
-	padding-top: 40px;
-	padding-bottom: 40px;
-	font-family: "Poppins", Sans-serif;
-	font-size: 14px;
-	font-weight: 700;
-	white-space: nowrap;
+    text-decoration: none;
+    color: #24366C;
+    padding-left: 9px;
+    padding-right: 9px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    font-family: "Poppins", Sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
 }
 
+.dropdown-icon {
+    margin-left: 5px;
+    font-size: 25px;
+    transition: transform 0.3s ease;
+    vertical-align: middle;
+}
+
+.menu-open {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 250px;
+    background-color: #0C2340;
+    color: rgb(19, 2, 2);
+    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1);
+    padding-top: 60px; 
+    z-index: 1000;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.close-menu-icon {
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    margin: 20px;
+}
+
+.menu-open li {
+    margin: 0;
+}
+
+.menu-open li a {
+	font-family: "Poppins", Sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #C2FF19;
+    padding: 10px;
+}
+
+.menu-open li a:hover {
+    background-color: #0c2340;
+}
+
+@media (max-width: 1024px) {
+    nav ul {
+        display: none;
+    }
+
+    .hamburger-menu {
+        display: block; 
+        cursor: pointer;
+        z-index: 100; 
+        position: absolute; 
+        top: 45px; 
+        right: 30px;
+    }
+
+    .hamburger-menu svg {
+        fill: #24366C;
+    }
+
+    .menu-open {
+        display: flex;
+    }
+}
+
+/* ------Slider------*/
 .slider {
 	width: 100%;
 	overflow: hidden;
+	position: relative;
 }
 
 .slides {
@@ -84,12 +162,41 @@ nav ul li a {
 	transform: scale(1.5);
 }
 
+.prev-button, .next-button {
+    position: absolute;
+    top: 45%; 
+    transform: translateY(-50%); 
+    font-size: 25px;
+    color: #ffffff;
+    cursor: pointer;
+    z-index: 10;
+    transition: color 0.3s ease;
+    background: none; 
+    border: none;
+}
+
+.prev-button {
+    left: 5px; 
+}
+
+.next-button {
+    right: 5px; 
+}
+
+@media (max-width: 100%) {
+    .prev-button, .next-button {
+        position: fixed;  
+    }
+}
+
+/* ------About------*/
+
 .about {
 	width: 100%;
 	box-sizing: border-box;
 	max-width: 1200px;
-	margin: 60px 0;
-	padding: 0px 2%;
+	margin: auto;
+	padding: 40px 2%;
 }
 
 @media (max-width: 1024px) {
@@ -121,6 +228,7 @@ nav ul li a {
 	line-height: 24px;
 }
 
+/* ------Listen------*/
 .listen {
 	background-image: url("https://osagilistas.com/wp-content/uploads/2021/01/Celular-DTI-1.png");
 	background-position: top center;
@@ -201,6 +309,7 @@ nav ul li a {
 	border: none;
 }
 
+/* ------Host------*/
 .host-container {
 	display: flex;
 	justify-content: center;
@@ -210,6 +319,7 @@ nav ul li a {
 .host-slider {
 	max-width: 1200px;
 	width: 100%;
+	position: relative;
 }
 
 .current-host {
@@ -248,6 +358,28 @@ nav ul li a {
 	box-sizing: border-box;
 	opacity: 1;
 	transform: translateY(0);
+}
+
+.about-hosts div {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start; 
+  }
+  
+  .about-hosts a {
+	display: inline-block; 
+	margin-top: 10px;
+	color: #24366c; 
+	text-decoration: none; 
+  }
+  
+  .about-hosts a:hover {
+	opacity: 0.8;
+  }
+
+  .about-hosts a .linkedin-icon {
+	font-size: 22px; 
+	transition: transform 0.3s ease;
 }
 
 @media (max-width: 767px) {
@@ -310,7 +442,35 @@ nav ul li a {
 	transform: scale(1.1);
 }
 
-/* Container principal */
+.prev-button-host, .next-button-host {
+	position: absolute;
+	top: 63%;
+	transform: translateY(-50%) scale(0.7);
+	font-size: 30px;
+	color: #aaa;
+	cursor: pointer;
+	z-index: 10;
+	background: none;
+	border: solid #aaa;
+	border-radius: 50%;
+	
+}
+  
+.prev-button-host {
+	left: 0px;
+	
+}
+  
+.next-button-host {
+	right: 0px;
+}
+
+.prev-button-host:hover, .next-button-host:hover {
+	color: #727272;
+	border-color: #727272;
+}
+
+/* ------Guests------*/
 .guests-container {
     max-width: 1200px;
     width: 100%;
@@ -319,8 +479,8 @@ nav ul li a {
     box-sizing: border-box;
 }
 
-/* Slider */
 .guest-slider {
+	position: relative;
     width: 100%;
     display: flex;
     align-items: center;
@@ -328,16 +488,14 @@ nav ul li a {
     gap: 10px;
 }
 
-/* Imagens dentro do carrossel */
 .guest-images {
     display: flex;
     justify-content: center;
     gap: 20px;
-    width: 95%;
+    width: 90%;
     position: relative;
 }
 
-/* Imagem do carrossel */
 .guest-image {
 	flex: 1 1 auto;
     width: 20%;
@@ -346,34 +504,42 @@ nav ul li a {
     object-fit: contain;
 }
 
-/* Botões de navegação */
-.prev-btn,
-.next-btn {
-    background-color: white;
-    border: none;
-    padding: 10px;
+.prev-button-guest, .next-button-guest {
+    position: absolute;
+    top: 50%;            
+    transform: translateY(-50%); 
+    font-size: 30px;      
+    color: rgb(29, 4, 4);         
     cursor: pointer;
-    font-size: 20px;
-    border-radius: 50%;
+    z-index: 10;         
+    background: none;    
+    border: none;      
 }
-/* Para telas menores (1024px), exibe 4 imagens e ajusta o tamanho */
+
+.prev-button-guest {
+    left: 0px;
+}
+
+
+.next-button-guest {
+    right: 0px; 
+}
+
 @media (max-width: 1024px) {
     .guest-image {
-        width: 22%; /* 4 imagens por linha */
+        width: 22%;
         max-width: 220px;
     }
 }
 
-/* Para telas menores (768px), exibe apenas 2 imagens e aumenta um pouco */
 @media (max-width: 768px) {
     .guest-image {
-        width: 45%; /* 2 imagens por linha */
+        width: 45%;
         max-width: 250px;
     }
 }
 
-
-
+/* ------Partners------*/
 .partners-container {
 	max-width: 1200px;
 	width: 100%;
@@ -386,7 +552,7 @@ nav ul li a {
 .partner-slider {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Garante que o conteúdo do carrossel fique centralizado */
+    align-items: center; 
     justify-content: center;
     width: 100%;
     gap: 10px;
@@ -397,8 +563,8 @@ nav ul li a {
 
 .partner-images {
     display: flex;
-    justify-content: center; /* Centraliza as imagens no carrossel */
-    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; 
+    align-items: center; 
     gap: 20px;
     width: 100%;
     transition: transform 0.6s ease-in-out;
@@ -410,10 +576,8 @@ nav ul li a {
 	height: auto;
 	object-fit: scale-down;
 	margin-right: 20px;
-	/* Adiciona um pequeno espaçamento entre as imagens */
 }
 
-/* Ajuste para telas menores */
 @media (max-width: 1024px) {
     .partner-image {
         width: calc(100% / 4 - 15px);
@@ -425,6 +589,22 @@ nav ul li a {
         width: calc(100% / 2 - 10px);
     }
 }
+.slider-navigation-partner {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+}
+.prev-button-partner, .next-button-partner {
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 10px;
+}
 
 .manual-navigation-partner {
     margin: 10px 0px;
@@ -432,11 +612,11 @@ nav ul li a {
     display: flex;
     justify-content: center;
     gap: 10px;
-    position: absolute; /* Isso garante que a navegação fique fixa no carrossel */
-    bottom: 10px; /* Ajuste a posição para a parte inferior do carrossel */
-    left: 50%; /* Centraliza horizontalmente */
-    transform: translateX(-50%); /* Garante que a navegação fique perfeitamente centrada */
-    z-index: 1; /* Para garantir que os botões fiquem acima do conteúdo */
+    position: absolute; 
+    bottom: 10px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    z-index: 1; 
 }
 
 .manual-navigation-partner button {
@@ -454,7 +634,7 @@ nav ul li a {
     background: #282828;
 }
 
-
+/* ------Subscribe------*/
 .subscribe-container {
 	width: 100%;
 	display: flex;
@@ -476,6 +656,7 @@ nav ul li a {
 	font-size: 18px;
 }
 
+/* ------Column------*/
 .column-container {
     display: flex;
     flex-direction: column;
@@ -493,20 +674,21 @@ nav ul li a {
     display: flex;
     gap: 30px;
     flex-wrap: wrap;
-    padding: 0px 20px;
-    justify-content: center; /* Adiciona centralização das colunas */
+    padding: 0px 10px;
+    justify-content: flex-start; 
+    align-items: flex-start;
 }
 
 .column {
     position: relative;
     width: 330px;
-    height: 500px;
+    height: 530px;
     overflow: hidden;
     border-radius: 3px;
     cursor: pointer;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.25s ease;
-    margin-bottom: 20px; /* Ajuste para espaçamento entre as colunas */
+    margin-bottom: 20px; 
 }
 
 .column:hover {
@@ -575,43 +757,45 @@ nav ul li a {
 
 .about-subject span {
     font-size: 12px;
-    font-weight: 700;
+    font-weight: 800;
     color: #c36;
     font-family: "Poppins", Sans-serif;
     text-transform: uppercase;
+	display: flex;  
+    align-items: center;   
+    gap: 2px;              
+    cursor: pointer;   
 }
 
 .about-subject span:hover {
     color: #0C2340;
 }
 
-/* Ajuste para telas de 1024px ou maior (2 colunas) */
-@media (max-width: 1024px) {
+@media (max-width: 1110px) {
     .list-column {
-        justify-content: center;
+        justify-content: flex-start;
     }
 
     .column {
-        width: 45%; /* Ajuste para 2 colunas por linha */
+			width: calc(50% - 15px); 
     }
 }
 
-/* Ajuste para telas de 767px ou menor (1 coluna) */
 @media (max-width: 767px) {
     .list-column {
         justify-content: center;
     }
 
     .column {
-        width: 90%; /* Ajuste para 1 coluna por linha */
+        width: 90%;
     }
 }
 
-
-
+/* ------Agilists------*/
 .agilists-container {
 	display: flex;
 	justify-content: center;
+	position: relative;
 }
 
 .agilists-slider {
@@ -621,7 +805,7 @@ nav ul li a {
 
 .current-agilists {
 	background-color: #F7F7F754;
-	padding: 0px;
+	padding: 54px 0px;
 }
 
 .agilist {
@@ -629,6 +813,18 @@ nav ul li a {
 	overflow: hidden;
 	display: flex;
 	justify-content: center;
+	position: relative;
+}
+
+.linkedin-icon {
+    font-size: 20px; 
+    color: #24366c; 
+    transition: transform 0.3s ease;
+    margin-top: 5px; 
+}
+
+.linkedin-icon:hover {
+    transform: scale(1.1);
 }
 
 .aboutAgilists {
@@ -644,11 +840,27 @@ nav ul li a {
 	padding: 30px 40px 55px 40px;
 	display: flex;
 	box-sizing: border-box;
+	position: relative;
 }
 
 .aboutAgilists img {
 	width: 200px;
 	height: 200px;
+}
+
+@media (max-width: 767px) {
+
+	.aboutAgilists {
+		flex-direction: column;
+		padding: 50px 10%;
+	}
+}
+
+.aboutAgilists img {
+	max-width: 200px;
+	width: 100%;
+	max-height: 200px;
+	height: 100%;
 }
 
 #position {
@@ -663,38 +875,66 @@ nav ul li a {
 	font-family: "Roboto", Sans-serif;
 	font-size: 14px;
 	font-weight: 400;
+	margin-bottom: 20px;
 }
 
 .manual-navigation-agilists {
-	margin: 10px 0px;
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	gap: 10px;
+    margin: 10px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
 .manual-navigation-agilists button {
-	background: #aaa;
-	border: 1px solid #aaa;
-	padding: 3px;
-	border-radius: 50%;
-	cursor: pointer;
-	width: 12px;
-	height: 12px;
-	box-shadow: none;
-	transition: transform 0.3s ease;
+    background: #aaa;
+    border: 1px solid #aaa;
+    padding: 3px;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 12px;
+    height: 12px;
+    box-shadow: none;
+    transition: transform 0.3s ease;
 }
 
 .manual-navigation-agilists .active-agilists {
-	transform: scale(1.1);
-	background: white;
+    transform: scale(1.1);
+    background: white;
 }
 
 .manual-navigation-agilists button:hover {
-	background: white;
-	transform: scale(1.1);
+    background: white;
+    transform: scale(1.1);
 }
 
+.prev-button-agilists, .next-button-agilists {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) scale(0.7);
+    font-size: 30px;
+    color: #aaa;
+    cursor: pointer;
+    z-index: 10;
+    background: none;
+    border: solid #aaa;
+    border-radius: 50%;
+}
+
+.prev-button-agilists {
+    left: 0px;
+}
+
+.next-button-agilists {
+    right: 0px;
+}
+
+.prev-button-agilists:hover, .next-button-agilists:hover {
+    color: #727272;
+    border-color: #727272;
+}
+
+/* ------Footer------*/
 .footer-container {
 	background-color: #0C2340;
 	padding: 60px 30px;
